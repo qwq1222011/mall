@@ -1,10 +1,24 @@
 # mall
-# 一级标题
-## 二级标题
-### 三级标题
 
--项目1
--项目2
--项目3
+## Project setup
+```
+npm install
+```
 
-http：//www.baidu.com
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
