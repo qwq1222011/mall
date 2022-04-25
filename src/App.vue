@@ -7,10 +7,19 @@
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
+import storage from './storege/index'
 import Home from './pages/home.vue'
 
 export default {
   name: 'App',
+  data(){
+    return {
+
+    }
+  },
+  mounted(){
+      // storage.setItem('user',{a:1});
+  },
   components: {
     Home,
   }
