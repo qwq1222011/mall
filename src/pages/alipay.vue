@@ -1,13 +1,13 @@
 <template>
     <div >
-        orderList,显示页面
+        ali-pay,显示页面
     </div>
 </template>
 
 <script>
 
     export default{
-        name:'order-list',
+        name:'ali-pay',
         
 
                       

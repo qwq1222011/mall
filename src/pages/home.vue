@@ -1,10 +1,8 @@
 <template>
-    <!-- <div id="app"> -->
         home
         <nav-header></nav-header>
-        <router-view></router-view>
+        <router-view ></router-view>
         <nav-footer></nav-footer>
-    <!-- </div> -->
 </template>
 
 <script>
@@ -16,8 +14,7 @@ import NavFooter from '../components/NavFooter.vue'
         components:{
             NavHeader,
             NavFooter, 
-        }
-
-                      
+        },
     }
+    
 </script>

@@ -1,15 +1,12 @@
 <template>
     <div >
-        orderList,显示页面
+        order-header
     </div>
 </template>
 
 <script>
-
     export default{
-        name:'order-list',
+        name:'order-header',
         
-
-                      
     }
 </script>

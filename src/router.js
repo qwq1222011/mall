@@ -14,8 +14,7 @@ import Order from './pages/order'
 import OrderConfirm from './pages/orderConfirm'
 import OrderList from './pages/orderlist'
 import OrderPay from './pages/orderPay'
-
-
+import Alipay from './pages/aliPay'
 
 
 
@@ -41,19 +40,19 @@ const router = createRouter({
             redirect:'/index',
             children:[
                 {
-                  path:'/index',//设定路由的路径，为什么使用斜杠，是因为，首页，产品栈和商品详情使用一个大的副路由。
+                  path:'index',//设定路由的路径，为什么使用斜杠，是因为，首页，产品栈和商品详情使用一个大的副路由。
                   name:'index',//首先加载home组件
                   component:Index,
                 },
 
                 {
-                  path:'/product/:id',//产品的这个动态id
+                  path:'product/:id',//产品的这个动态id
                   name:'product',//首先加载home组件
                   component:Product,
                 },
 
                 {
-                  path:'/detail/:id',//产品的这个动态id
+                  path:'detail/:id',//产品的这个动态id
                   name:'detail',//首先加载home组件
                   component:Detail,
                 },
@@ -64,7 +63,7 @@ const router = createRouter({
 
         //购物车的引用
         {
-            path:'/',
+            path:'/cart',
             name:'cart',
             component:Cart,
            },
@@ -75,27 +74,31 @@ const router = createRouter({
           component:Order,
           children:[
               {
-                  path:'/list',
+                  path:'list',
                   name:'order-list',
                   component:OrderList,
               },
 
               {
-                  path:'/confirm',
+                  path:'confirm',
                   name:'order-confirm',
                   component:OrderConfirm,
               },
               {
-                  path:'/pay',
+                  path:'pay',
                   name:'order-pay',
                   component:OrderPay,
+              },
+              {
+                path:'/alipay',
+                name:'ali-pay',
+                component:Alipay,
               },
           ]
          },
     ]
 });
 export default router;
-
 
 
 //导出一个对象
