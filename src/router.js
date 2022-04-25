@@ -14,7 +14,8 @@ import Order from './pages/order'
 import OrderConfirm from './pages/orderConfirm'
 import OrderList from './pages/orderlist'
 import OrderPay from './pages/orderPay'
-import Alipay from './pages/aliPay'
+import Alipay from './pages/alipay'
+// import Alipay from './pages/aliPay'
 
 
 
@@ -73,6 +74,7 @@ const router = createRouter({
           name:'order',
           component:Order,
           children:[
+             
               {
                   path:'list',
                   name:'order-list',
@@ -90,10 +92,11 @@ const router = createRouter({
                   component:OrderPay,
               },
               {
-                path:'/alipay',
-                name:'ali-pay',
+                path:'alipay',
+                name:'alipay',
                 component:Alipay,
-              },
+            },
+              
           ]
          },
     ]
