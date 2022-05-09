@@ -127,12 +127,12 @@
           v-for="(item, index) in adsList"
           :key="index"
         >
-          <img :src="item.img" />
+          <img v-lazy="item.img" />
         </a>
       </div>
       <div class="banner">
         <a href="/product/30">
-          <img src="/img/banner-1.png" />
+          <img v-lazy="'/img/banner-1.png'" />
         </a>
       </div>
       <div class="product-box">
@@ -152,7 +152,7 @@
                 <div class="itm-info">
                   <h3>{{item.name}}</h3>
                   <p>{{item.subtitle}}</p>
-                  <p class="price">{{item.price}}元起</p>
+                  <p class="price" @click="addCart(item.id)">{{item.price}}元起</p>
                 </div>
               </div>
             </div>
@@ -160,6 +160,17 @@
         </div>
       </div>
       <service-bar></service-bar>
+      <modal title="提示" 
+             sureText="查看购物车" 
+             btnType="3" 
+             modalType="middle" 
+             :showModal="showModal"
+             @submit="submit"
+             @cancel="showModal=false">
+        <template v-slot:body>
+          <p>商品添加成功！</p>
+        </template>
+      </modal>
     </div>
   </div>
 </template>
@@ -167,6 +178,7 @@
 
 <script >
 import ServiceBar from "./../components/ServiceBar.vue";
+import Modal from "./../components/Modal.vue"
 import { reactive } from "vue";
 import SwiperCore, {
   Autoplay,
@@ -181,6 +193,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/effect-cube";
 
+
 // import ""
 
 SwiperCore.use([Autoplay, Pagination, EffectCube, Navigation]);
@@ -191,6 +204,7 @@ export default {
     ServiceBar,
     Swiper,
     SwiperSlide,
+    Modal,
   },
   setup() {
     // swiper相关配置属性放在swiper_options这个变量里
@@ -412,6 +426,7 @@ export default {
       phoneList: [
         
       ],
+      showModal:false,
     };
   },
   mounted(){
@@ -428,6 +443,20 @@ export default {
           res.list=res.list.slice(6,14);
             this.phoneList=[res.list.slice(0,4),res.list.slice(4,8)]
         })
+      },
+      addCart(id){
+        this.showModal=true;
+        return;
+        // this.axios.post('/carts',{
+        //   productId:id,
+        //   selected:true
+        // }).then((res)=>{
+        //  this.showModal = true;
+        //   this.$store.dispatch('saveCartCount',res.cartTotalQuantity);
+        // })
+      },
+      goToCart(){
+        this.$router.push('/cart');
       }
   },
 };

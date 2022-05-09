@@ -3,7 +3,7 @@ import {createApp} from 'vue'
 import routes from './router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-import VueLazyLoad from 'vue-lazyload'
+import lazyPlugin from 'vue3-lazy'
 import VueCookie from 'vue-cookie'
 // import { Message } from 'element-ui'
 // import 'element-ui/lib/theme-chalk/index.css'
@@ -49,6 +49,9 @@ axios.interceptors.response.use(function(response){
 const app = createApp(App);
 app.use(routes);
 app.use(VueAxios,axios);
+app.use(lazyPlugin,{
+    loading:require('@/assets/loading-svg/loading-bars.svg'),
+});
 app.config.globalProperties.$cookies=VueCookie;
 // app.use(VueCookie);
 // app.use(VueLazyLoad,{
