@@ -4,7 +4,7 @@ import routes from './router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import lazyPlugin from 'vue3-lazy'
-import VueCookie from 'vue-cookie'
+import VueCookie from 'vue3-cookies'
 // import { Message } from 'element-ui'
 // import 'element-ui/lib/theme-chalk/index.css'
 import App from './App.vue'
@@ -37,11 +37,15 @@ axios.defaults.timeout=8000;
 axios.interceptors.response.use(function(response){
 
     let res=response.data;
+    let path=window.location.pathname;
     if(res.status==0){
         return res.data;
     }
-    else if(res.status ==10){
-        window.location.href='/login'
+    else if(res.status == 10){
+        console.log(path);
+        if(path!='/login')
+           window.location.href='/login';
+        //    return Promise.reject(res);
     }else{
         alert(res.msg)
     }
@@ -52,8 +56,8 @@ app.use(VueAxios,axios);
 app.use(lazyPlugin,{
     loading:require('@/assets/loading-svg/loading-bars.svg'),
 });
-app.config.globalProperties.$cookies=VueCookie;
-// app.use(VueCookie);
+// app.config.globalProperties.$cookies=VueCookie;
+app.use(VueCookie);
 // app.use(VueLazyLoad,{
 //   loading:'/imgs/loading-svg/loading-bars.svg'
 // })

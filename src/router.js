@@ -15,6 +15,7 @@ import OrderConfirm from './pages/orderConfirm'
 import OrderList from './pages/orderlist'
 import OrderPay from './pages/orderPay'
 import Alipay from './pages/alipay'
+import Login from './pages/login'
 // import Alipay from './pages/aliPay'
 
 
@@ -61,7 +62,12 @@ const router = createRouter({
                 
             ]
         },
-
+        //登录路由
+        {
+            path:'/login',
+            name:'login',
+            component:Login,
+        },
         //购物车的引用
         {
             path:'/cart',

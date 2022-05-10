@@ -31,7 +31,23 @@ export default {
       // this.getUser();
       // this.getCartCount();
     // }
+    this.getUser();
+    this.getCartCount();
       
+  },
+  methods:{
+    getUser(){
+        this.axios.get('/user').then((res)=>{
+           //todo 保存到vuex里面
+          this.res=res;     
+        })
+    },
+    getCartCount(){
+         this.axios.get('/carts/products/sum').then(()=>{
+           //todo 保存到vuex里面
+            this.res=res;   
+        })
+    },
   }
   
 }
