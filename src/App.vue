@@ -14,7 +14,7 @@ export default {
   name: 'App',
   data(){
     return {
-      
+      // username:this.$store.state.username,
     }
   },
   mounted(){
@@ -31,23 +31,28 @@ export default {
       // this.getUser();
       // this.getCartCount();
     // }
-    // this.getUser();
-    // this.getCartCount();
+    // console.log(this.$cookies)
+    if(this.$cookies.get('userId')){
+      this.getUser();
+      // this.getCartCount();
+      console.log(111111);
+    }
       
   },
   methods:{
-    // getUser(){
-    //     this.axios.get('/user').then(()=>{
-    //        //todo 保存到vuex里面
-          
-    //     })
-    // },
-    // getCartCount(){
-    //      this.axios.get('/carts/products/sum').then(()=>{
-    //        //todo 保存到vuex里面
-           
-    //     })
-    // },
+    getUser(){
+        this.axios.get('/user').then((res={})=>{
+           //todo 保存到vuex里面
+           console.log(res.username);
+          this.$store.dispatch('saveUserName',res.username);
+        })
+    },
+    getCartCount(){
+         this.axios.get('/carts/products/sum').then((res)=>{
+           //todo 保存到vuex里面
+           this.$store.dispatch('saveCartCount',res)
+        })
+    },
   }
   
 }

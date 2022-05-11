@@ -60,25 +60,29 @@
      methods:{
          login(){
              let {username,password}=this;
+             console.log(username,password)
              this.axios.post('/user/login',{
                  username,
                  password,
              }).then((res)=>{
-               
-                 console.log(res);
-                //  this.$cookies.set('userId',res.data,{expires:'Session'});
-                //  this.saveUserName(res.username);
-                 //保存用户名的信息
+                //  res.username=this.username;
+                  // console.log(res.id);
+                 this.$cookies.set('userId',res.id,{expires:'1d'});
+                //  console.log(this.$cookies.get('userId'))
+                 this.$store.dispatch('saveUserName',res.username);
+                // //  this.saveUserName(res.username);
+                //  //保存用户名的信息
                  this.$router.push('/index')
+                console.log(res)
                  })
              },
             //  ...mapActions(['saveUserName']),
          register(){
              let {username,password}=this;
              this.axios.post('/user/register',{
-                 username:'admin2',
-                 password:'admin2',
-                 email:'admin1@163.com'
+                 username:'qwq',
+                 password:'qwq',
+                 email:'qwq@163.com'
              }).then(()=>{
                  alert('success');
              })

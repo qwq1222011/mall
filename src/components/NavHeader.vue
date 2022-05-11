@@ -224,7 +224,6 @@ export default {
   name: "nav-header",
   data(){
       return {
-        username:'',
         phoneList:[]
       }
   },
@@ -232,6 +231,12 @@ export default {
 currency(val){
        if(!val) return '0.00';
        return '￥'+val+'元起';
+     },
+     username(){
+       return this.$store.state.username;
+     },
+     cartCount(){
+       return this.$store.state.cartCount;
      }
   },
   // filters:{

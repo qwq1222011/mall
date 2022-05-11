@@ -8,11 +8,12 @@ import VueCookie from 'vue3-cookies'
 // import { Message } from 'element-ui'
 // import 'element-ui/lib/theme-chalk/index.css'
 import App from './App.vue'
+import store from './store'
 // import env from './env'
 // import App from './pages/home'
 
 // mock开关
-const mock = true;
+const mock = false;
 if(mock){
   require('./mock/api');
 }
@@ -29,7 +30,7 @@ if(mock){
 //根据前端的跨域方式做调整,代理就用下方的api
 // axios.defaults.baseURL='https://mock.presstime.cn/mock/6273373f830905001f16cea4/mall';
 axios.defaults.baseURL='/api'
-axios.defaults.timeout=8000;
+// axios.defaults.timeout=8000;
 // 根据环境变量获取不同的请求地址
 // axios.defaults.baseURL=env.baseURL;
 
@@ -52,6 +53,7 @@ axios.interceptors.response.use(function(response){
 });
 const app = createApp(App);
 app.use(routes);
+app.use(store);
 app.use(VueAxios,axios);
 app.use(lazyPlugin,{
     loading:require('@/assets/loading-svg/loading-bars.svg'),
