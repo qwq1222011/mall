@@ -244,20 +244,23 @@ currency(val){
      this.getProducList();
   },
   methods:{
+    // 跳转去登录页面
     login(){
            this.$router.push('/login');
     },
     getProducList(){
+      
       this.axios.get('/products',{
-        params:{
-          categoryId:'100012',
-        }
-      }).then((res)=>{
-        if(res.list.length>6){
-          this.phoneList=res.list.slice(0,6);
-        }
-      });
+          params:{
+            categoryId:'100012',
+            pageSize:6
+          }
+        }).then((res)=>{
+          this.phoneList = res.list;
+        })
     },
+
+    //跳转去购物车
      goToCart(){
          this.$router.push('/cart');
      }

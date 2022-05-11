@@ -64,12 +64,15 @@
                  username,
                  password,
              }).then((res)=>{
-                 console.log(this.$cookie)
-                 this.$cookies.set('userId',res.data,{expires:'Session'});
+               
+                 console.log(res);
+                //  this.$cookies.set('userId',res.data,{expires:'Session'});
+                //  this.saveUserName(res.username);
                  //保存用户名的信息
                  this.$router.push('/index')
                  })
              },
+            //  ...mapActions(['saveUserName']),
          register(){
              let {username,password}=this;
              this.axios.post('/user/register',{

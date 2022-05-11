@@ -437,11 +437,12 @@ export default {
         this.axios.get('/products',{
            params:{
               categoryId:100012,
-              pageSize:14,
+              pageSize:8,
            }
         }).then((res)=>{
-          res.list=res.list.slice(6,14);
-            this.phoneList=[res.list.slice(0,4),res.list.slice(4,8)]
+          // res.list=res.list.slice(6,14);
+          console.log(res);
+            this.phoneList=[res.list.slice(0,4),res.list.slice(4,8)];
         })
       },
       addCart(id){
