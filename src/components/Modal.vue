@@ -51,6 +51,12 @@ export default{
         },
         showModal:Boolean,
     },
+    methods:{
+         submit(){
+             console.log(this.showModal)
+             this.showModal=false;
+         }
+    }
 }
 </script>
 <style lang="scss">

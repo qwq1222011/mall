@@ -236,6 +236,7 @@ currency(val){
        return this.$store.state.username;
      },
      cartCount(){
+
        return this.$store.state.cartCount;
      }
   },
@@ -247,12 +248,18 @@ currency(val){
   // },
   mounted(){
      this.getProducList();
+     this.getCartCount();
   },
   methods:{
     // 跳转去登录页面
     login(){
            this.$router.push('/login');
     },
+    getCartCount(){
+        this.axios.get('/carts/products/sum').then((res=0)=>{
+          this.$store.dispatch('saveCartCount',res);
+        })
+      },
     getProducList(){
       
       this.axios.get('/products',{
@@ -268,7 +275,8 @@ currency(val){
     //跳转去购物车
      goToCart(){
          this.$router.push('/cart');
-     }
+     },
+     
   },
 };
 </script>
