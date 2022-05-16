@@ -72,7 +72,12 @@
                  this.$store.dispatch('saveUserName',res.username);
                 // //  this.saveUserName(res.username);
                 //  //保存用户名的信息
-                 this.$router.push('/index')
+                 this.$router.push({
+                   name:'index',
+                   params:{
+                     from:'login'
+                   }
+                 })
                 console.log(res)
                  })
              },

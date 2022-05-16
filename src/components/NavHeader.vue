@@ -10,6 +10,8 @@
       <div class="right">
         <li><a href="javascript:;" v-if="username">{{username}}</a></li>
         <li><a href="javascript:;" v-if="!username" @click="login">登录</a></li>
+        
+
         <li><a href="javascript:;" v-if="username">我的订单</a></li>
 
         <li><a href="javascript:;" v-if="!username">注册</a></li>
@@ -19,6 +21,7 @@
             <span>购物车({{ cartCount }})</span>
           </a>
         </li>
+        <li><a href="javascript:;" v-if="username" @click="logout">退出</a></li>
       </div>
     </div>
   </header>
@@ -248,7 +251,10 @@ currency(val){
   // },
   mounted(){
      this.getProducList();
-     this.getCartCount();
+     let params=this.$route.params;
+      this.getCartCount();
+     
+     
   },
   methods:{
     // 跳转去登录页面
@@ -276,7 +282,16 @@ currency(val){
      goToCart(){
          this.$router.push('/cart');
      },
-     
+     logout(){
+        this.axios.post('/user/logout').then(()=>{
+          console.log("111111111111111111")
+          alert('退出成功');
+          this.$cookies.set('userId','',{expires:'-1'});
+          this.$store.dispatch('saveUserName','');
+          this.$store.dispatch('saveCartCount','0');
+          this.$router.push('/index');
+        })
+      },
   },
 };
 </script>
@@ -318,6 +333,7 @@ currency(val){
 }
 .header-top .cart {
   background-color: #666666;
+  margin-right: 15px;
 }
 .header-top .cart img {
   width: 16px;

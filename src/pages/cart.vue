@@ -40,7 +40,7 @@
         </div>
         <div class="order-wrap clearfix">
           <div class="cart-tip fl">
-            <a href="/#/index">继续购物</a>
+            <a href="/index">继续购物</a>
             共<span>{{list.length}}</span>件商品，已选择<span>{{checkedNum}}</span>件
           </div>
           <div class="total fr">
@@ -201,8 +201,8 @@ import ServiceBar from '../components/ServiceBar.vue'
               display: flex;
               align-items: center;
               img{
-                width:80px;
-                height:80px;
+                width:100px;
+                height:67px;
                 vertical-align:middle;
               }
               span{
