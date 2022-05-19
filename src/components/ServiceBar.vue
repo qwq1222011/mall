@@ -24,7 +24,7 @@ export default {
     font-size:16px;
     li{
       display:inline-block;
-      width:24.9%;
+      width:24%;
       text-align:center;
       border-right:1px solid #E5E5E5;
       cursor: pointer;

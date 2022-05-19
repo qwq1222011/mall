@@ -2,7 +2,7 @@
   <header class="header-top">
     <div class="baner">
       <div class="left">
-        <li><a href="javascript:;">小米商城</a></li>
+        <li><a href="/index">小米商城</a></li>
         <li><a href="javascript:;">MIUI</a></li>
         <li><a href="javascript:;">协议规则</a></li>
         <li><a href="javascript:;">云服务</a></li>

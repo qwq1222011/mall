@@ -351,6 +351,9 @@ export default {
       this.showDelModal = false;
       this.showEditModal = false;
     },
+    orderSubmit(){
+      this.$router.push('/order/alipay');
+    }
   },
    // 订单提交
     orderSubmit(){
