@@ -23,6 +23,8 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-###修改index.js
+修改index.js
 下载完成后，需要将public文件夹下的index.js文件改成index.ejs,并且将webpack/bin/webpack.js中添加html: { template: '../public/index.ejs' }。
+账号名：qwq
+密码：qwq
 
