@@ -126,6 +126,15 @@ export default{
         this.payment = res.payment;
         });
   
+    },
+    paySubmit(payType){
+        if(payType==1){
+          window.open('/order/alipay?orderId='+this.orderNo);
+
+        }
+        else{
+          alert("功能尚未开发！")
+        }
     }
  
 }

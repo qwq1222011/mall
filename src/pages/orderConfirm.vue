@@ -352,14 +352,7 @@ export default {
       this.showEditModal = false;
     },
     orderSubmit(){
-      this.$router.push({
-        path:'/order/pay',
-            
-      });
-    }
-  },
-   // 订单提交
-    orderSubmit(){
+      console.log("跳转成功")
       let item = this.list[this.checkIndex];
       if(!item){
         alert('请选择一个收货地址');
@@ -377,6 +370,8 @@ export default {
         })
       })
     }
+  },
+  
 };
 </script>
 <style lang="scss">
