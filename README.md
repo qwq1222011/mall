@@ -1,4 +1,10 @@
 # mall
+仿小米电商商城
+使用html+scss完成网页布局
+使用vue3.0框架，以及vue-router构建单页面应用
+项目采用vuex处理各组件之间的通信，通过vue-cli4.0快速搭建开发环境。
+通过mock完成与后端数据的通信。
+
 
 ## Project setup
 ```
