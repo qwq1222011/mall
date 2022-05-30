@@ -352,7 +352,10 @@ export default {
       this.showEditModal = false;
     },
     orderSubmit(){
-      this.$router.push('/order/alipay');
+      this.$router.push({
+        path:'/order/pay',
+            
+      });
     }
   },
    // 订单提交
@@ -365,10 +368,11 @@ export default {
       this.axios.post('/orders',{
         shippingId:item.id
       }).then((res)=>{
+        console.log(res);
         this.$router.push({
           path:'/order/pay',
           query:{
-            orderNo:res.orderNo
+           orderNo:res.orderNo
           }
         })
       })
